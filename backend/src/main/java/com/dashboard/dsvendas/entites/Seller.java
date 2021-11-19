@@ -14,7 +14,7 @@ import java.util.List;
 @ToString
 @Entity
 @Table(name="tb_sellers")
-public class Seller implements Serializable {
+public class Seller  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
