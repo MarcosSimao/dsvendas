@@ -1,5 +1,7 @@
 package com.dashboard.dsvendas.controller;
 
+import com.dashboard.dsvendas.entites.dto.SaleSucessDto;
+import com.dashboard.dsvendas.entites.dto.SaleSumDto;
 import com.dashboard.dsvendas.entites.dto.SalerDto;
 import com.dashboard.dsvendas.service.SaleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +28,16 @@ public class SaleController {
         Page<SalerDto> s = saleService.findAll(pageable);
         return ResponseEntity.ok(s);
 
+    }
+
+    @GetMapping("/soma")
+    public ResponseEntity<List<SaleSumDto>> amountGroupBySeler(){
+        List<SaleSumDto>list=saleService.amountGroupBySeler();
+        return ResponseEntity.ok(list);
+    }
+    @GetMapping("/sucess")
+    public ResponseEntity<List<SaleSucessDto>> sucessGroupBySeler(){
+        List<SaleSucessDto>list=saleService.sucessGroupBySeler();
+        return ResponseEntity.ok(list);
     }
 }
